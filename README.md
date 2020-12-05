@@ -1,4 +1,4 @@
-# Guide to use Lombok In Spring Boot
+# Spring Boot REST API Using Spring Data MongoDB Tutorial
 
 <p align="left">
 In this article, I’m going to explain how to use the MongoDB database with a Spring Boot application using a practical scenario. Additionally, I’m going to develop a REST API covering CRUD operations to show the practical usage of using MongoDB inside a spring boot application.
