@@ -40,6 +40,11 @@ public class LibraryController {
         return ResponseEntity.ok(libraryService.createBook(request));
     }
 
+    @PatchMapping("/book/{bookId}")
+    public ResponseEntity<Book> updateBook (@PathVariable("bookId") String bookId, @RequestBody BookCreationRequest request) {
+        return ResponseEntity.ok(libraryService.updateBook(bookId, request));
+    }
+
     @PostMapping("/author")
     public ResponseEntity<Author> createAuthor (@RequestBody AuthorCreationRequest request) {
         return ResponseEntity.ok(libraryService.createAuthor(request));
@@ -54,6 +59,11 @@ public class LibraryController {
     @PostMapping("/member")
     public ResponseEntity<Member> createMember (@RequestBody MemberCreationRequest request) {
         return ResponseEntity.ok(libraryService.createMember(request));
+    }
+
+    @GetMapping("/member")
+    public ResponseEntity<List<Member>> readMembers () {
+        return ResponseEntity.ok(libraryService.readMembers());
     }
 
     @PatchMapping("/member/{memberId}")

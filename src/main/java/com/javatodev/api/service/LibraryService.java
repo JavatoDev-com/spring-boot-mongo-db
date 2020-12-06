@@ -127,6 +127,25 @@ public class LibraryService {
         return booksApprovedToBurrow;
     }
 
+    public Book updateBook(String bookId, BookCreationRequest request) {
+        Optional<Author> author = authorRepository.findById(request.getAuthorId());
+        if (!author.isPresent()) {
+            throw new EntityNotFoundException("Author Not Found");
+        }
+        Optional<Book> optionalBook = bookRepository.findById(bookId);
+        if (!optionalBook.isPresent()) {
+            throw new EntityNotFoundException("Book Not Found");
+        }
+        Book book = optionalBook.get();
+        book.setIsbn(request.getIsbn());
+        book.setName(request.getName());
+        book.setAuthor(author.get());
+        return bookRepository.save(book);
+    }
+
+    public List<Member> readMembers() {
+        return memberRepository.findAll();
+    }
 
 
 }
